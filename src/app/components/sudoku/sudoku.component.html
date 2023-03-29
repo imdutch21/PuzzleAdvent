@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col">
+        <div *ngFor="let row of grid; let rowIndex = index">
+            <div class="cel" *ngFor="let col of row; let colIndex = index" [class.top]="rowIndex % 3 === 0"
+                [class.bottom]="rowIndex % 3 === 2" [class.left]="colIndex % 3 === 0" [class.right]="colIndex % 3 === 2"
+                [class.selected]="colIndex == currentCol && rowIndex == currentRow"
+                [class.lineSelected]="colIndex == currentCol || rowIndex == currentRow"
+                [class.unchangeble]="!col.canChangeValue" (click)="selectCel(rowIndex, colIndex)">
+                <div class="bigNumber full" *ngIf="col.value !== undefined || col.tinyNumbers === undefined">{{col.value??"&#8203;"}}</div>
+                <div class="full" *ngIf="col.tinyNumbers !== undefined">
+                    <div class="tinyNumberContainer"> <div class="tinyNumber" *ngFor="let num of col.tinyNumbers">{{num}}</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <button class="btn" [class.btn-success]="mode==='number'" [class.btn-secondary]="mode!=='number'"
+            (click)="mode='number'">Nummer</button>
+        <button class="btn" [class.btn-success]="mode==='tiny-number'" [class.btn-secondary]="mode!=='tiny-number'"
+            (click)="mode='tiny-number'">Klein number</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <button *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="btn btn-light" 
+            (click)="onNumberPress(num)">{{num}}</button>
+    </div>
+</div>
+
+<p *ngIf="isCompleted">Klaar!</p>
