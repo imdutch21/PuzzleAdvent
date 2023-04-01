@@ -1,0 +1,32 @@
+.letter {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  -webkit-filter: brightness(100%);
+  background-color: white;
+  text-align: center;
+}
+
+.letter:hover {
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.selected {
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.found {
+  background-color:red;
+}

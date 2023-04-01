@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col">
+        <div *ngFor="let row of wordSearch;let rowIndex = index">
+            <div 
+            class="letter"*ngFor="let char of row;let colIndex = index" 
+            [class.found]="isFound(rowIndex, colIndex)"
+            [class.selected]="isInLine(rowIndex, colIndex)"
+            (click)="findWord(rowIndex,colIndex)"
+            (mouseenter)="mouseEnter(rowIndex,colIndex)">{{char}}</div>
+        </div>
+    </div>
+</div>
+
+<p *ngFor="let word of foundWords">{{word}}</p>
